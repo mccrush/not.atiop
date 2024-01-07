@@ -24,7 +24,7 @@
       />
     </div>
 
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-6 col-md-3 pe-0">
         <input
           type="number"
@@ -54,7 +54,7 @@
           @blur="saveItem"
         />
       </div>
-    </div>
+    </div> -->
 
     <div class="d-flex justify-content-end mt-3">
       <BtnTrash class="btn-sm" @click="removeItem(item)" />

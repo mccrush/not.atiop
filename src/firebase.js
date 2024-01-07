@@ -7,6 +7,7 @@ import apiKey from './../apiKey'
 const firebaseConfig = {
   apiKey,
   authDomain: "not-atiop.firebaseapp.com",
+  databaseURL: "https://not-atiop-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "not-atiop",
   storageBucket: "not-atiop.appspot.com",
   messagingSenderId: "69646674496",

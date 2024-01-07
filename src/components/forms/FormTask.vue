@@ -7,13 +7,23 @@
       v-model.trim="item.title"
       @blur="saveItem"
     />
-    <textarea
+    <!-- <textarea
       class="form-control bg-white mt-3"
       rows="6"
       name="itemDescription"
       v-model="item.description"
       @blur="saveItem"
-    ></textarea>
+    ></textarea> -->
+    <div class="mt-3">
+      <Editor
+        :api-key="apiKey"
+        :initialValue="item.description"
+        :init="conf"
+        v-model="item.description"
+        @blur="saveItem"
+      />
+    </div>
+
     <div class="row">
       <div class="col-6 col-md-3 pe-0">
         <input
@@ -53,14 +63,27 @@
 </template>
 
 <script>
+import Editor from '@tinymce/tinymce-vue'
 import BtnTrash from './../buttons/BtnTrash.vue'
 
 export default {
   components: {
+    Editor,
     BtnTrash
   },
   props: {
     item: Object
+  },
+  data() {
+    return {
+      apiKey: 'hanxollva4phpflvvnv1lje4y82fvprrkqrmpqeclw066js2',
+      conf: {
+        menubar: false,
+        plugins: 'lists link table code wordcount',
+        toolbar:
+          'bold forecolor link numlist bullist alignleft aligncenter table code removeformat'
+      }
+    }
   },
   computed: {
     currentUserId() {

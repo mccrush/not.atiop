@@ -6,13 +6,11 @@ import apiKey from './../apiKey'
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey,
-  authDomain: "atiop-8c255.firebaseapp.com",
-  databaseURL: "https://atiop-8c255.firebaseio.com",
-  projectId: "atiop-8c255",
-  storageBucket: "atiop-8c255.appspot.com",
-  messagingSenderId: "880500583039",
-  appId: "1:880500583039:web:c0439e9a7b8c970f",
-  measurementId: "G-3L9681ZJ5C"
+  authDomain: "not-atiop.firebaseapp.com",
+  projectId: "not-atiop",
+  storageBucket: "not-atiop.appspot.com",
+  messagingSenderId: "69646674496",
+  appId: "1:69646674496:web:14370da9feb34b339ccda5"
 };
 
 // Initialize Firebase

@@ -1,8 +1,8 @@
 {
-  "name": "atiop",
-  "version": "2.7.0",
+  "name": "not.atiop",
+  "version": "1.0.0",
   "private": true,
-  "description": "ATIOP 2.0 - Сервис управления задачами",
+  "description": "ATIOP NOTE - Заметки",
   "author": "mccrush.ru",
   "scripts": {
     "dev": "vite",
@@ -36,9 +36,9 @@
     "not dead"
   ],
   "bugs": {
-    "url": "https://github.com/mccrush/atiop/issues"
+    "url": "https://github.com/mccrush/not.atiop/issues"
   },
-  "homepage": "https://github.com/mccrush/atiop",
+  "homepage": "https://github.com/mccrush/not.atiop",
   "keywords": [
     "atiop",
     "web app"
@@ -46,6 +46,6 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mccrush/atiop.git"
+    "url": "git+https://github.com/mccrush/not.atiop.git"
   }
 }

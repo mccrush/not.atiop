@@ -1,7 +1,7 @@
 <template>
   <div>
     <FormAddItem type="task" :parentId="projectId" />
-    <ListItems title="Задачи" :parentId="projectId" type="task" />
+    <ListItems title="Заметки" :parentId="projectId" type="task" />
   </div>
 </template>
 

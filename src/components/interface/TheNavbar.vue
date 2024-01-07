@@ -6,7 +6,7 @@
           src="/img/icons/logo_8.svg"
           height="26"
           class="d-inline-block mb-1 me-0"
-          alt="ATIOP"
+          alt="ATIOP Заметки"
         />
       </div>
       <div class="d-none d-sm-block navbar-brand p-0">
@@ -14,25 +14,12 @@
           src="/img/icons/logo_8.svg"
           height="26"
           class="d-inline-block mb-1 me-2"
-          alt="ATIOP"
+          alt="ATIOP Заметки"
         />
-        ATIOP
+        ATIOP Заметки
       </div>
 
-      <!-- <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button> -->
-
-      <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
-      <div
+      <!-- <div
         v-if="currentUserId"
         class="btn-group"
         role="group"
@@ -56,7 +43,7 @@
           title="Скоро"
           @click="setView('coming')"
         />
-      </div>
+      </div> -->
       <div class="me-auto"></div>
       <a
         href="https://doc.atiop.ru/"
@@ -86,12 +73,11 @@
 </template>
 
 <script>
-import BtnSelectView from './../buttons/BtnSelectView.vue'
+//import BtnSelectView from './../buttons/BtnSelectView.vue'
 import BtnLogOut from './../buttons/BtnLogOut.vue'
 
 export default {
   components: {
-    BtnSelectView,
     BtnLogOut
   },
   computed: {

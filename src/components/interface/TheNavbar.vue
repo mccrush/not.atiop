@@ -1,15 +1,15 @@
 <template>
   <nav class="navbar navbar-expand-md border-bottom">
     <div class="container-fluid pt-1">
-      <div class="d-sm-none navbar-brand p-0">
+      <!-- <div class="d-sm-none navbar-brand p-0">
         <img
           src="/img/icons/logo_8.svg"
           height="26"
           class="d-inline-block mb-1 me-0"
           alt="ATIOP Заметки"
         />
-      </div>
-      <div class="d-none d-sm-block navbar-brand p-0">
+      </div> -->
+      <div class="navbar-brand p-0">
         <img
           src="/img/icons/logo_8.svg"
           height="26"
@@ -45,13 +45,16 @@
         />
       </div> -->
       <div class="me-auto"></div>
-      <a
+      <!-- <a
         href="https://doc.atiop.ru/"
         target="_blank"
         class="btn btn-sm btn-light text-secondary d-none d-sm-block ps-2 pe-2 me-2"
         title="Руководство"
         >Руководство ⇗</a
-      >
+      > -->
+      <span class="d-none d-sm-block text-secondary me-2">{{
+        currentUserEmail
+      }}</span>
 
       <BtnLogOut
         v-if="currentUserId"
@@ -83,6 +86,9 @@ export default {
   computed: {
     currentUserId() {
       return this.$store.getters.currentUserId
+    },
+    currentUserEmail() {
+      return this.$store.getters.currentUserEmail
     },
     view() {
       return this.$store.getters.view

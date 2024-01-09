@@ -1,12 +1,22 @@
 <template>
   <div>
-    <input
-      type="text"
-      class="form-control bg-white"
-      name="itemTitle"
-      v-model.trim="item.title"
-      @blur="saveItem"
-    />
+    <div class="row">
+      <div class="col-10 col-md-10 pe-0">
+        <input
+          type="text"
+          class="form-control bg-white"
+          name="itemTitle"
+          v-model.trim="item.title"
+          @blur="saveItem"
+        />
+      </div>
+      <div class="col-2 col-md-2">
+        <div class="d-flex justify-content-end pt-1">
+          <BtnTrash class="btn-sm" @click="removeItem(item)" />
+        </div>
+      </div>
+    </div>
+
     <!-- <textarea
       class="form-control bg-white mt-3"
       rows="6"
@@ -24,7 +34,7 @@
       />
     </div>
 
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-6 col-md-3 pe-0">
         <input
           type="number"
@@ -40,27 +50,7 @@
           <BtnTrash class="btn-sm" @click="removeItem(item)" />
         </div>
       </div>
-      <!-- <div class="col-6 col-md-3 pe-md-0">
-        <input
-          type="number"
-          class="form-control bg-white mt-3"
-          name="itemPrice"
-          min="0"
-          step="10"
-          v-model.number="item.price"
-          @blur="saveItem"
-        />
-      </div>
-      <div class="col-12 col-md-6">
-        <input
-          type="datetime-local"
-          class="form-control mt-3"
-          name="itemDateremind"
-          v-model="item.dateReminde"
-          @blur="saveItem"
-        />
-      </div> -->
-    </div>
+    </div> -->
   </div>
 </template>
 

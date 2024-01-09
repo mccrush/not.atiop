@@ -122,7 +122,9 @@ export default {
           this.removeOneItem(item)
         }
       } else {
-        this.removeOneItem(item)
+        if (confirm('Точно удалить?')) {
+          this.removeOneItem(item)
+        }
       }
     }
   }

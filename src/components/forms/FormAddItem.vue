@@ -28,6 +28,7 @@ export default {
     type: String,
     parentId: String
   },
+  emits: ['set-item-id'],
   data() {
     return {
       title: ''
@@ -53,6 +54,8 @@ export default {
           currentUserId: this.currentUserId
         })
         this.title = ''
+
+        this.$emit('set-item-id', item)
       }
     }
   }

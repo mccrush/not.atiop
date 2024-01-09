@@ -12,6 +12,7 @@
       v-if="type === 'project' && parentId === directionId"
       type="project"
       :parentId="directionId"
+      @set-item-id="setItemId"
     />
     <ul class="list-group mt-1 mb-3">
       <li

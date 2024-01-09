@@ -94,7 +94,7 @@ export default {
       }
     },
     itemsSort() {
-      return sortMethod(this.items, 'asc', 'position')
+      return sortMethod(this.items, 'asc', 'title')
     },
     currentItemId() {
       switch (this.type) {

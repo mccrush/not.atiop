@@ -51,20 +51,27 @@
         </div>
       </div>
     </div> -->
-    <div class="d-flex border mt-2 p-1">
-      <button class="btn btn-light text-muted me-2 p-0 ps-2 pe-2">+</button>
+    <div class="d-flex mt-2 p-1">
+      <div class="dropdown">
+        <button
+          class="btn btn-sm btn-light text-muted me-2 p-0 ps-2 pe-2"
+          data-bs-toggle="dropdown"
+        >
+          +
+        </button>
+        <FormAddTag class="dropdown-menu" @toggle-tag="toggleTag" />
+      </div>
+
       <div class="d-flex align-items-center">
-        <div
+        <button
           v-for="tag in item.tags"
           :key="tag"
-          class="badge bg-light text-muted border me-2 ps-3 pe-3"
+          class="btn btn-sm btn-light text-muted me-2 p-0 ps-2 pe-2"
         >
           {{ tag }}
-        </div>
+        </button>
       </div>
     </div>
-
-    <FormAddTag @toggle-tag="toggleTag" />
   </div>
 </template>
 

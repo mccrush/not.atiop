@@ -1,22 +1,24 @@
 <template>
-  <div class="border mt-2 p-1">
+  <div class="border-0 p-2">
     <input
-      class="form-control"
+      class="form-control form-control-sm"
       type="text"
       id="searchTag"
       v-model="searchTag"
     />
-    <ul class="list-group">
+    <ul class="list-group mt-1">
       <li
         v-for="tag in filterTags"
         :key="tag"
-        class="list-group-item"
+        class="cursor-pointer list-group-item p-0 ps-2"
         @click="$emit('toggle-tag', tag)"
       >
         {{ tag }}
       </li>
     </ul>
-    <button class="btn btn-sm text-secondary mt-2">Add new tag</button>
+    <button class="btn btn-sm btn-light text-secondary w-100 mt-1">
+      Создать тег
+    </button>
   </div>
 </template>
 

@@ -19,6 +19,7 @@
     <button
       v-if="searchTag"
       class="btn btn-sm btn-light text-secondary w-100 mt-1"
+      @click="createTag"
     >
       Создать тег
     </button>
@@ -26,6 +27,8 @@
 </template>
 
 <script>
+import { modelsFactory } from './../../helpers/modelsFactory'
+
 export default {
   emits: ['toggle-tag'],
   data() {
@@ -34,6 +37,9 @@ export default {
     }
   },
   computed: {
+    currentUserId() {
+      return this.$store.getters.currentUserId
+    },
     tags() {
       return this.$store.getters.tags
     },
@@ -41,6 +47,20 @@ export default {
       return this.tags.filter(item =>
         item.toUpperCase().includes(this.searchTag.toUpperCase())
       )
+    }
+  },
+  methods: {
+    createTag() {
+      if (this.searchTag) {
+        let item = modelsFactory({ type: 'tags' })
+        item.title = this.searchTag
+        this.$store.dispatch('addITag', {
+          item,
+          currentUserId: this.currentUserId
+        })
+        this.searchTag = ''
+        // И далее тег должен автоматически закрепиться за заметкой
+      }
     }
   }
 }

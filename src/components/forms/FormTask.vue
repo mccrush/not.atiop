@@ -51,17 +51,33 @@
         </div>
       </div>
     </div> -->
+    <div class="d-flex border mt-2 p-1">
+      <button class="btn btn-light text-muted me-2 p-0 ps-2 pe-2">+</button>
+      <div class="d-flex align-items-center">
+        <div
+          v-for="tag in item.tags"
+          :key="tag"
+          class="badge bg-light text-muted border me-2 ps-3 pe-3"
+        >
+          {{ tag }}
+        </div>
+      </div>
+    </div>
+
+    <FormAddTag @toggle-tag="toggleTag" />
   </div>
 </template>
 
 <script>
 import Editor from '@tinymce/tinymce-vue'
 import BtnTrash from './../buttons/BtnTrash.vue'
+import FormAddTag from './FormAddTag.vue'
 
 export default {
   components: {
     Editor,
-    BtnTrash
+    BtnTrash,
+    FormAddTag
   },
   props: {
     item: Object
@@ -83,6 +99,19 @@ export default {
     }
   },
   methods: {
+    toggleTag(tag) {
+      console.log('1 tag = ', tag)
+      if (!this.item.tags) {
+        this.item.tags = []
+        // Не знаю, как пока избавится от этой необходимости
+      }
+
+      if (this.item.tags.find(item => item === tag)) {
+        this.item.tags = this.item.tags.filter(item => item !== tag)
+      } else {
+        this.item.tags.push(tag)
+      }
+    },
     saveItem() {
       this.$store.dispatch('updateItemRT', {
         item: this.item,

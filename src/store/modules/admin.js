@@ -12,6 +12,7 @@ export default {
     taskId: localStorage.getItem('taskId') || '',
     item: JSON.parse(localStorage.getItem('item')) || null,
     view: localStorage.getItem('view') || 'all',
+    tags: ['tag 1', 'Tag second']
   },
 
   mutations: {
@@ -101,6 +102,7 @@ export default {
     projectId: state => state.projectId,
     taskId: state => state.taskId,
     item: state => state.item,
-    view: state => state.view
+    view: state => state.view,
+    tags: state => state.tags
   }
 }

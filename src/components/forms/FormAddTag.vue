@@ -16,7 +16,10 @@
         {{ tag }}
       </li>
     </ul>
-    <button class="btn btn-sm btn-light text-secondary w-100 mt-1">
+    <button
+      v-if="searchTag"
+      class="btn btn-sm btn-light text-secondary w-100 mt-1"
+    >
       Создать тег
     </button>
   </div>

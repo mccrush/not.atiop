@@ -10,10 +10,19 @@
       <li
         v-for="tag in filterTags"
         :key="tag.id"
-        class="cursor-pointer list-group-item p-0 ps-2"
-        @click="$emit('toggle-tag', tag.title)"
+        class="cursor-pointer list-group-item p-0"
       >
-        {{ tag.title }}
+        <div class="d-flex justify-content-between">
+          <div class="w-100 ps-2" @click="$emit('toggle-tag', tag.title)">
+            {{ tag.title }}
+          </div>
+          <button
+            class="btn btn-sm btn-light p-0 ps-2 pe-2"
+            @click="removeTag(tag)"
+          >
+            x
+          </button>
+        </div>
       </li>
     </ul>
     <button
@@ -61,6 +70,12 @@ export default {
         this.searchTag = ''
         // И далее тег должен автоматически закрепиться за заметкой
       }
+    },
+    removeTag(tag) {
+      this.$store.dispatch('removeTag', {
+        item: tag,
+        currentUserId: this.currentUserId
+      })
     }
   }
 }

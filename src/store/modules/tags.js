@@ -8,15 +8,21 @@ export default {
   },
 
   mutations: {
-    addItem(state, { item }) {
-      state[item.type].push(item)
-    },
     setItems(state, { type, items }) {
       state[type] = items
     },
   },
 
   actions: {
+    async removeTag({ commit, dispatch }, { item, currentUserId }) {
+      try {
+        await deleteDoc(doc(db, 'users/' + currentUserId + '/' + item.type, item.id))
+        dispatch('getTags', { type: item.type, currentUserId })
+      } catch (error) {
+        console.error('admin.js: removeTag(): error', error)
+      }
+    },
+
     async addITag({ commit, dispatch }, { item, currentUserId }) {
       try {
         //commit('addItem', { item })

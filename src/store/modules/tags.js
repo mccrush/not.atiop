@@ -20,7 +20,7 @@ export default {
 
     async getTags({ commit }, { type, currentUserId }) {
       let tempArray = []
-      const q = query(collection(db, currentUserId + '/' + type))
+      const q = query(collection(db, 'users/' + currentUserId + '/' + type))
       const querySnapshot = await getDocs(q)
       querySnapshot.forEach((doc) => {
         tempArray.push(doc.data())

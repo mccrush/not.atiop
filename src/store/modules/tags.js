@@ -8,14 +8,24 @@ export default {
   },
 
   mutations: {
+    addItem(state, { item }) {
+      state[item.type].push(item)
+    },
     setItems(state, { type, items }) {
       state[type] = items
     },
   },
 
   actions: {
-    async addITag({ commit }, { item, currentUserId }) {
-
+    async addITag({ commit, dispatch }, { item, currentUserId }) {
+      try {
+        //commit('addItem', { item })
+        await setDoc(doc(db, 'users/' + currentUserId + '/' + item.type, item.id), item)
+        dispatch('getTags', { type: item.type, currentUserId })
+        //console.log('admin.js: addITag(): Данные добавлены')
+      } catch (error) {
+        console.error('admin.js: addITag(): error', error)
+      }
     },
 
     async getTags({ commit }, { type, currentUserId }) {

@@ -9,11 +9,11 @@
     <ul class="list-group mt-1">
       <li
         v-for="tag in filterTags"
-        :key="tag"
+        :key="tag.id"
         class="cursor-pointer list-group-item p-0 ps-2"
-        @click="$emit('toggle-tag', tag)"
+        @click="$emit('toggle-tag', tag.title)"
       >
-        {{ tag }}
+        {{ tag.title }}
       </li>
     </ul>
     <button
@@ -45,7 +45,7 @@ export default {
     },
     filterTags() {
       return this.tags.filter(item =>
-        item.toUpperCase().includes(this.searchTag.toUpperCase())
+        item.title.toUpperCase().includes(this.searchTag.toUpperCase())
       )
     }
   },

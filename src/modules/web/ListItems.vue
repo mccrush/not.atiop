@@ -14,6 +14,7 @@
       :parentId="directionId"
       @set-item-id="setItemId"
     />
+
     <ul class="list-group mt-1 mb-3">
       <li
         v-for="item in itemsSort"
@@ -65,37 +66,33 @@ export default {
     title: String,
     parentId: String,
     type: String,
-    listType: String
+    listType: String,
+    searchFilter: String
   },
   computed: {
     directionId() {
       return this.$store.getters.directionId
     },
     items() {
-      if (this.listType === 'lostday') {
-        return this.$store.getters.task.filter(
-          item => item.dateReminde && this.dayDifference(item.dateReminde) < 1
-        )
-      } else if (this.listType === 'today') {
-        return this.$store.getters.task.filter(
-          item => item.dateReminde && this.dayDifference(item.dateReminde) == 1
-        )
-      } else if (this.listType === 'comingday') {
-        return this.$store.getters.task.filter(
-          item => item.dateReminde && this.dayDifference(item.dateReminde) > 1
+      if (this.type === 'project' || this.type === 'task') {
+        return this.$store.getters[this.type].filter(
+          item => item.parentId === this.parentId
         )
       } else {
-        if (this.type === 'project' || this.type === 'task') {
-          return this.$store.getters[this.type].filter(
-            item => item.parentId === this.parentId
-          )
-        } else {
-          return this.$store.getters[this.type]
-        }
+        return this.$store.getters[this.type]
+      }
+    },
+    searchFilterItems() {
+      if (this.type === 'task' && this.searchFilter) {
+        return this.$store.getters.task.filter(item =>
+          item.title.toUpperCase().includes(this.searchFilter.toUpperCase())
+        )
+      } else {
+        return this.items
       }
     },
     itemsSort() {
-      return sortMethod(this.items, 'asc', 'title')
+      return sortMethod(this.searchFilterItems, 'asc', 'title')
     },
     currentItemId() {
       switch (this.type) {

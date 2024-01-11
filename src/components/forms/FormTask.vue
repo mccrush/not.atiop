@@ -118,6 +118,7 @@ export default {
       } else {
         this.item.tags.push(tag)
       }
+      this.saveItem()
     },
     saveItem() {
       this.$store.dispatch('updateItemRT', {

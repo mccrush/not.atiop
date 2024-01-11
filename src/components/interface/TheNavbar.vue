@@ -52,7 +52,7 @@
         title="Руководство"
         >Руководство ⇗</a
       > -->
-      <span class="d-none d-sm-block text-secondary me-2">{{
+      <span class="d-none d-sm-block text-secondary small me-2">{{
         currentUserEmail
       }}</span>
 

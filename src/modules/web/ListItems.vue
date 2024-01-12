@@ -73,6 +73,12 @@ export default {
     directionId() {
       return this.$store.getters.directionId
     },
+    tag() {
+      return this.$store.getters.tag
+    },
+    tasks() {
+      return this.$store.getters.task
+    },
     items() {
       if (this.type === 'project' || this.type === 'task') {
         return this.$store.getters[this.type].filter(
@@ -82,17 +88,30 @@ export default {
         return this.$store.getters[this.type]
       }
     },
-    searchFilterItems() {
-      if (this.type === 'task' && this.searchFilter) {
-        return this.$store.getters.task.filter(item =>
-          item.title.toUpperCase().includes(this.searchFilter.toUpperCase())
-        )
+    itemsFilter() {
+      if (this.type === 'task') {
+        if (this.tag) {
+          return this.tasks.filter(
+            item => item.tags && item.tags.includes(this.tag)
+          )
+        } else {
+          return this.items
+        }
       } else {
         return this.items
       }
     },
+    // itemsFilterSearch() {
+    //   if (this.type === 'task' && this.searchFilter) {
+    //     return this.tasks.filter(item =>
+    //       item.title.toUpperCase().includes(this.searchFilter.toUpperCase())
+    //     )
+    //   } else {
+    //     return this.items
+    //   }
+    // },
     itemsSort() {
-      return sortMethod(this.searchFilterItems, 'asc', 'title')
+      return sortMethod(this.itemsFilter, 'asc', 'title')
     },
     currentItemId() {
       switch (this.type) {

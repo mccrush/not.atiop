@@ -11,7 +11,8 @@ export default {
     projectId: localStorage.getItem('projectId') || '',
     taskId: localStorage.getItem('taskId') || '',
     item: JSON.parse(localStorage.getItem('item')) || null,
-    view: localStorage.getItem('view') || 'all'
+    view: localStorage.getItem('view') || 'all',
+    tag: localStorage.getItem('tag') || ''
   },
 
   mutations: {
@@ -42,6 +43,10 @@ export default {
     setView(state, view) {
       state.view = view
       localStorage.setItem('view', view)
+    },
+    setTag(state, tag) {
+      state.tag = tag
+      localStorage.setItem('tag', tag)
     }
   },
 
@@ -101,6 +106,7 @@ export default {
     projectId: state => state.projectId,
     taskId: state => state.taskId,
     item: state => state.item,
-    view: state => state.view
+    view: state => state.view,
+    tag: state => state.tag
   }
 }

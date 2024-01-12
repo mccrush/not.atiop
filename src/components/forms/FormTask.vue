@@ -67,6 +67,7 @@
           v-for="tag in item.tags"
           :key="tag"
           class="btn btn-sm btn-light text-muted me-2 p-0 ps-2 pe-2"
+          @click="setTagFilter(tag)"
         >
           {{ tag }}
         </button>
@@ -106,6 +107,9 @@ export default {
     }
   },
   methods: {
+    setTagFilter(tag) {
+      this.$store.commit('setTag', tag)
+    },
     toggleTag(tag) {
       console.log('1 tag = ', tag)
       if (!this.item.tags) {

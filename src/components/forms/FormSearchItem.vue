@@ -1,5 +1,18 @@
 <template>
   <div class="input-group input-group-sm mt-2">
+    <div v-if="tag" class="d-flex align-items-center">
+      <div class="btn-group me-2">
+        <button class="btn btn-sm btn-light disabled shadow-sm p-0 ps-2 pe-2">
+          {{ tag }}
+        </button>
+        <button
+          class="btn btn-sm btn-light text-muted p-0 ps-2 pe-2"
+          @click="setTagFilter('')"
+        >
+          x
+        </button>
+      </div>
+    </div>
     <input
       type="text"
       class="form-control"
@@ -26,7 +39,15 @@ export default {
       searchFilter: ''
     }
   },
+  computed: {
+    tag() {
+      return this.$store.getters.tag
+    }
+  },
   methods: {
+    setTagFilter(tag) {
+      this.$store.commit('setTag', tag)
+    },
     clearSearch() {
       this.searchFilter = ''
       this.$emit('update-search', this.searchFilter)

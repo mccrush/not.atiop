@@ -94,6 +94,10 @@ export default {
           return this.tasks.filter(
             item => item.tags && item.tags.includes(this.tag)
           )
+        } else if (this.searchFilter) {
+          return this.tasks.filter(item =>
+            item.title.toUpperCase().includes(this.searchFilter.toUpperCase())
+          )
         } else {
           return this.items
         }
@@ -101,15 +105,6 @@ export default {
         return this.items
       }
     },
-    // itemsFilterSearch() {
-    //   if (this.type === 'task' && this.searchFilter) {
-    //     return this.tasks.filter(item =>
-    //       item.title.toUpperCase().includes(this.searchFilter.toUpperCase())
-    //     )
-    //   } else {
-    //     return this.items
-    //   }
-    // },
     itemsSort() {
       return sortMethod(this.itemsFilter, 'asc', 'title')
     },

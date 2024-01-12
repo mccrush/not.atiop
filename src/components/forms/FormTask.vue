@@ -51,26 +51,48 @@
         </div>
       </div>
     </div> -->
-    <div class="d-flex mt-2 p-1">
-      <div class="dropdown">
-        <button
-          class="btn btn-sm btn-light text-muted me-2 p-0 ps-2 pe-2"
-          data-bs-toggle="dropdown"
-        >
-          +
-        </button>
-        <FormAddTag class="dropdown-menu" @toggle-tag="toggleTag" />
-      </div>
 
-      <div class="d-flex align-items-center">
-        <button
-          v-for="tag in item.tags"
-          :key="tag"
-          class="btn btn-sm btn-light text-muted me-2 p-0 ps-2 pe-2"
-          @click="setTagFilter(tag)"
+    <div class="row mt-2">
+      <div class="col-7">
+        <div v-if="item.type === 'task'" class="d-flex p-1">
+          <div class="dropdown">
+            <button
+              class="btn btn-sm btn-light text-muted me-2 ps-2 pe-2"
+              data-bs-toggle="dropdown"
+            >
+              +
+            </button>
+            <FormAddTag class="dropdown-menu" @toggle-tag="toggleTag" />
+          </div>
+
+          <div class="d-flex align-items-center">
+            <button
+              v-for="tag in item.tags"
+              :key="tag"
+              class="btn btn-sm btn-light text-muted me-2 ps-2 pe-2"
+              @click="setTagFilter(tag)"
+            >
+              {{ tag }}
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-5 ps-0">
+        <select
+          v-if="item.type === 'task' || item.type === 'project'"
+          class="form-select"
+          aria-label="Выбор блокнота"
+          v-model="item.parentId"
+          @change="saveItem"
         >
-          {{ tag }}
-        </button>
+          <option
+            v-for="parentItem in parentItems"
+            :key="parentItem.id"
+            :value="parentItem.id"
+          >
+            {{ parentItem.title }}
+          </option>
+        </select>
       </div>
     </div>
   </div>
@@ -104,6 +126,13 @@ export default {
   computed: {
     currentUserId() {
       return this.$store.getters.currentUserId
+    },
+    parentItems() {
+      if (this.item.type === 'task') {
+        return this.$store.getters.project
+      } else if (this.item.type === 'project') {
+        return this.$store.getters.direction
+      }
     }
   },
   methods: {

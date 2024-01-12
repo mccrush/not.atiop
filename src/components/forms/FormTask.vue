@@ -53,7 +53,7 @@
     </div> -->
 
     <div class="row mt-2">
-      <div class="col-7">
+      <div class="col-6 col-md-7">
         <div v-if="item.type === 'task'" class="d-flex p-1">
           <div class="dropdown">
             <button
@@ -77,10 +77,10 @@
           </div>
         </div>
       </div>
-      <div class="col-5 ps-0">
+      <div class="col-6 col-md-5 d-flex align-items-center ps-0">
         <select
           v-if="item.type === 'task' || item.type === 'project'"
-          class="form-select"
+          class="form-select form-select-sm"
           aria-label="Выбор блокнота"
           v-model="item.parentId"
           @change="saveItem"
@@ -119,7 +119,8 @@ export default {
         menubar: false,
         plugins: 'lists link table code wordcount',
         toolbar:
-          'bold forecolor link numlist bullist alignleft aligncenter table code removeformat'
+          'bold forecolor link numlist bullist alignleft aligncenter table code removeformat',
+        height: '70vh'
       }
     }
   },

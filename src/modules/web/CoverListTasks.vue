@@ -18,14 +18,14 @@
 </template>
 
 <script>
-import FormAddItem from './../../components/forms/FormAddItem.vue'
 import FormSearchItem from './../../components/forms/FormSearchItem.vue'
+import FormAddItem from './../../components/forms/FormAddItem.vue'
 import ListItems from './ListItems.vue'
 
 export default {
   components: {
-    FormAddItem,
     FormSearchItem,
+    FormAddItem,
     ListItems
   },
   data() {

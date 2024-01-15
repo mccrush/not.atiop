@@ -28,7 +28,7 @@
     <!-- <CoverListLostday v-if="view === 'date'" class="col-12" />
     <CoverListToday v-if="view === 'date'" class="col-12" />
     <CoverListComingday v-if="view === 'coming'" class="col-12" /> -->
-    <CoverCardMobile v-if="taskId" class="col-12" />
+    <CoverCardMobile v-if="taskId" class="col-12 p-0" />
   </div>
 </template>
 

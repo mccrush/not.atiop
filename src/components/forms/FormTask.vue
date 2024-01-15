@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="row">
+    <div class="row ps-2 ps-md-0 pe-2 pe-md-0">
       <div class="col-10 col-md-10 pe-0">
         <input
           type="text"
@@ -52,7 +52,7 @@
       </div>
     </div> -->
 
-    <div class="row mt-2">
+    <div class="row mt-2 ps-md-0 pe-2 pe-md-0">
       <div class="col-6 col-md-7">
         <div v-if="item.type === 'task'" class="d-flex p-1">
           <div class="dropdown">

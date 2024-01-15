@@ -1,12 +1,12 @@
 <template>
   <div>
+    <FormSearchItem @update-search="updateSearch" />
     <FormAddItem
       type="task"
       :parentId="projectId"
       :searchFilter="searchFilter"
       @set-item-id="setItemId"
     />
-    <FormSearchItem @update-search="updateSearch" />
     <ListItems
       ref="listItems"
       title="Заметки"

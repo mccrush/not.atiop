@@ -1,5 +1,5 @@
 <template>
-  <div class="input-group input-group-sm mt-2">
+  <div class="input-group input-group-sm mb-2">
     <div v-if="tag" class="d-flex align-items-center">
       <div class="btn-group me-2">
         <button class="btn btn-sm btn-light disabled shadow-sm p-0 ps-2 pe-2">
